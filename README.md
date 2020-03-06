@@ -8,9 +8,9 @@ $ docker-compose up
 ~~~~
 
 # Important
-Since infcloud caches the configuration locally, you MUST reset the cache in order to reload this configuration. Whenever you make changes to config/infcloud/*, be sure to run the following script:
+Since infcloud caches the configuration locally, you MUST reset the cache in order to reload this configuration. Whenever you make changes to config/infcloud/*, be sure to run the following:
 ~~~~
-$ ./scripts/reset_infcloud_cache.sh
+# make clean all
 ~~~~
 Once you have done this, clear your browser cache for the site you're hosting this thing on to force a reload of the configuration.
 
@@ -23,3 +23,10 @@ The following users are available for authentication. They use their username as
 # Next steps
 Navigate to radicale on http://localhost:8080/radicale/, and login as the test user. Create a new collection.
 Navigate to infCloud on http://localhost:8080/edit/, login as the test user, and mutate events
+
+# Troubleshooting
+Q: Stuff does not work??
+A: Check the comments under Important
+
+Q: It still does not work!
+A: Clear your browser cache

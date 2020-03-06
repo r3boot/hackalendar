@@ -7,6 +7,12 @@ $ make
 $ docker-compose up
 ~~~~
 
+# Important
+Since infcloud caches the configuration locally, you MUST reset the cache in order to reload this configuration. Whenever you make changes to config/infcloud/*, be sure to run the following script:
+~~~~
+$ ./scripts/reset_infcloud_cache.sh
+~~~~
+
 # Test credentials
 The following users are available for authentication. They use their username as a password:
 - admin

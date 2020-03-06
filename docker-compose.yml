@@ -9,10 +9,11 @@ services:
       - 8080:8080
     volumes:
       - ./config/nginx:/etc/nginx/conf.d
-      - ./config/infcloud:/etc/infcloud
+      #- ./config/infcloud:/etc/infcloud
       - ./data/landingpage:/var/www/default
-      - ./data/infcloud:/var/www/infcloud
-      - type=bind,source=/etc/infcloud/config.js,target=/var/www/infcloud/config.js
+      - ./data/infcloud-ro:/var/www/infcloud-ro
+      - ./data/infcloud-rw:/var/www/infcloud-rw
+      #- type=bind,source=/etc/infcloud/config.js,target=/var/www/infcloud/config.js
   radicale:
     image: as65342/radicale:latest
     networks:

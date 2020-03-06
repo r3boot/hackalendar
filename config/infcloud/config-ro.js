@@ -288,7 +288,8 @@ var globalAccountSettings=[
 	{
 		userName: 'test',
 		userPassword: 'test'
-	}
+	},
+	forceReadOnly: true
 }
 ];
 

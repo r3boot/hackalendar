@@ -13,9 +13,15 @@ INFCLOUD_RO_DIR  = $(DATA_DIR)/infcloud-ro
 INFCLOUD_RW_CFG  = $(INFCLOUD_RW_DIR)/config.js
 INFCLOUD_RO_CFG  = $(INFCLOUD_RO_DIR)/config.js
 
-all: $(INFCLOUD_RW_CFG) $(INFCLOUD_RO_CFG)
+all: $(INFCLOUD_RW_CFG) $(INFCLOUD_RO_CFG) reset_infcloud_cache
 
-$(BUILD_DIR):
+check_dependencies:
+	$(SCRIPTS_DIR)/check_dependencies.sh
+
+reset_infcloud_cache:
+	$(SCRIPTS_DIR)/reset_infcloud_cache.sh
+
+$(BUILD_DIR): check_dependencies
 	mkdir -p "$(BUILD_DIR)"
 
 $(BUILD_DIR)/$(INFCLOUD_ZIP): $(BUILD_DIR)

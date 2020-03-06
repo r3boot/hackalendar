@@ -23,6 +23,7 @@ $(BUILD_DIR)/$(INFCLOUD_ZIP): $(BUILD_DIR)
 
 $(INFCLOUD_DIR): $(BUILD_DIR)/$(INFCLOUD_ZIP)
 	unzip -d $(BUILD_DIR) $(BUILD_DIR)/$(INFCLOUD_ZIP)
+	$(SCRIPTS_DIR)/patch_infcloud.sh
 
 $(INFCLOUD_RW_DIR): $(INFCLOUD_DIR)
 	cp -Rp $(INFCLOUD_DIR) $(INFCLOUD_RW_DIR)
@@ -31,11 +32,9 @@ $(INFCLOUD_RO_DIR): $(INFCLOUD_DIR)
 	cp -Rp $(INFCLOUD_DIR) $(INFCLOUD_RO_DIR)
 
 $(INFCLOUD_RW_CFG): $(INFCLOUD_RW_DIR)
-	$(SCRIPTS_DIR)/patch_infcloud.sh
 	install -m 0644 $(INFCLOUD_CFG)/config-rw.js $(INFCLOUD_RW_DIR)/config.js
 
 $(INFCLOUD_RO_CFG): $(INFCLOUD_RO_DIR)
-	$(SCRIPTS_DIR)/patch_infcloud.sh
 	install -m 0644 $(INFCLOUD_CFG)/config-ro.js $(INFCLOUD_RO_DIR)/config.js
 
 clean:

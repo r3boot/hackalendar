@@ -12,6 +12,7 @@ Since infcloud caches the configuration locally, you MUST reset the cache in ord
 ~~~~
 $ ./scripts/reset_infcloud_cache.sh
 ~~~~
+Once you have done this, clear your browser cache for the site you're hosting this thing on to force a reload of the configuration.
 
 # Test credentials
 The following users are available for authentication. They use their username as a password:

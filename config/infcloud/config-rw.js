@@ -322,18 +322,8 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 // port, ... (client installed into Davical "htdocs" subdirectory;
 // works "out of the box", no additional setup required):
 var globalNetworkCheckSettings={
-	href: 'http://localhost:8080/radicale/',
-	timeOut: 90000,
-	lockTimeOut: 10000,
-	checkContentType: true,
-	settingsAccount: true,
-	delegation: true,
-	additionalResources: [],
-	hrefLabel: null,
-	forceReadOnly: null,
-	ignoreAlarms: false,
-	backgroundCalendars: []
-}
+	href: 'http://localhost:8080/radicale/'
+};
 
 
 // globalNetworkAccountSettings

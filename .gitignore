@@ -1,0 +1,6 @@
+*.swp
+*.pyc
+.idea
+build
+data/infcloud
+data/radicale

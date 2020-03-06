@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+  nginx:
+    image: nginx:alpine
+    networks:
+      - calendar
+    ports:
+      - 8080:8080
+    volumes:
+      - ./config/nginx:/etc/nginx/conf.d
+      - ./config/infcloud:/etc/infcloud
+      - ./data/landingpage:/var/www/default
+      - ./data/infcloud:/var/www/infcloud
+      - type=bind,source=/etc/infcloud/config.js,target=/var/www/infcloud/config.js
+  radicale:
+    image: as65342/radicale:latest
+    networks:
+      - calendar
+    ports:
+      - 5232:5232
+    volumes:
+      - ./config/radicale:/etc/radicale
+      - ./data/radicale:/data
+
+networks:
+  calendar: {}

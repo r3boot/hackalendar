@@ -1,0 +1,48 @@
+digraph D {
+    node [ shape=plaintext fontsize="10" ];
+
+    browser [ label=<
+        <table border="1" cellborder="0" cellspacing="1">
+            <tr><td align="left"><b>Browser</b></td></tr>
+        </table>
+    > fontsize="9" ];
+
+    nginx [ label=<
+        <table border="1" cellborder="0" cellspacing="1">
+            <tr><td align="left"><b>Nginx</b></td></tr>
+        </table>
+    > fontsize="9" ];
+
+    radicale [ label=<
+        <table border="1" cellborder="0" cellspacing="1">
+            <tr><td align="left"><b>Radicale</b></td></tr>
+            <tr><td align="left">Serves CalDAV</td></tr>
+        </table>
+    > fontsize="9" ];
+
+    infcloud_ro [ label=<
+        <table border="1" cellborder="0" cellspacing="1">
+            <tr><td align="left"><b>infCloud</b></td></tr>
+            <tr><td align="left">Read-only instance</td></tr>
+        </table>
+    > fontsize="9" ];
+
+    infcloud_rw [ label=<
+        <table border="1" cellborder="0" cellspacing="1">
+            <tr><td align="left"><b>infCloud</b></td></tr>
+            <tr><td align="left">Read-write instance</td></tr>
+        </table>
+    > fontsize="9" ];
+
+    nginx -> radicale [ label=< Is<br/>proxy for > fontsize="8" ];
+    nginx -> infcloud_ro [ label=< Serves > fontsize="8" ];
+    nginx -> infcloud_rw [ label=< Serves > fontsize="8" ];
+
+    infcloud_ro -> browser [ label=< Runs<br/>in>  fontsize="8" ];
+    infcloud_rw -> browser [ label=< Runs<br/>in > fontsize="8" ];
+
+    infcloud_ro -> radicale [ label=< Authenticates<br/>to > fontsize="8" ];
+    infcloud_rw -> radicale [ label=< Passes<br/>credentials to > fontsize="8" ];
+
+    browser -> nginx [ label=< Connects<br/>to > fontsize="8" ];
+}
